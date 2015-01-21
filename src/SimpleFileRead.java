@@ -1,30 +1,50 @@
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 
 public class SimpleFileRead implements ReadIO<String> {
 
-	public String read(String file) {
+	private String fileName;
+	private BufferedReader bufferedReader = null;
+	
+	public void BufferedReader(String fileName) {
+		this.fileName = fileName;
+	}
+	
+	public String read() {
 		String data = "";
-		BufferedReader reader = null;
 		try {
-			FileReader fileReader = new FileReader(file);
-			reader = new BufferedReader(fileReader);
 			String line = null;
-			while ((line = reader.readLine()) != null) {
+			while ((line = bufferedReader.readLine()) != null) {
 				data += line;
 			}
-			reader.close();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				reader.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
-
 		return data;
+	}
+
+	@Override
+	public void open() {
+		try {
+			Reader reader = new FileReader(fileName);
+			bufferedReader = new BufferedReader(reader);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void close() {
+		try {
+			bufferedReader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

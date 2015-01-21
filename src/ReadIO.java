@@ -1,4 +1,8 @@
-public interface ReadIO <T>{
+public interface ReadIO<T> {
 
-	public T read(String file);
+	public void open();
+
+	public T read();
+
+	public void close();
 }

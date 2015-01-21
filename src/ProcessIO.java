@@ -1,14 +1,25 @@
-public class ProcessIO {
+import java.io.Serializable;
 
-	public String process(String fileName, String data) {
+public class ProcessIO<T extends Serializable> {
 
-		WriteIO<String> fileWrite = new SimpleFileWrite();
+	private WriteIO<T> writeIO;
+	private ReadIO<T> readIO;
 
-		fileWrite.write(fileName, data);
+	public ProcessIO(ReadIO<T> readIO, WriteIO<T> writeIO) {
+		this.readIO = readIO;
+		this.writeIO = writeIO;
+	}
 
-		ReadIO<String> fileRead = new SimpleFileRead();
+	public T process() {
 
-		String dataRead = fileRead.read(fileName);
+		readIO.open();
+		T dataRead = readIO.read();
+		readIO.close();
+		
+		writeIO.open();
+		writeIO.write(dataRead);
+		writeIO.close();
+
 
 		return dataRead;
 	}
