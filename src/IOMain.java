@@ -6,9 +6,13 @@ public class IOMain {
 
 		String fileName = "myfile";
 
-		FileWrite.write(fileName, HELLO_WORLD);
+		FileWrite fileWrite = new SimpleFileWrite();
 
-		String dataRead = FileRead.read(fileName);
+		fileWrite.write(fileName, HELLO_WORLD);
+
+		FileRead fileRead = new SimpleFileRead();
+
+		String dataRead = fileRead.read(fileName);
 
 		System.out.println(dataRead);
 
