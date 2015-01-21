@@ -1,7 +1,7 @@
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class SimpleFileWrite implements FileWrite<String> {
+public class SimpleFileWrite implements Writable<String> {
 
 	public void write(String file, String data) {
 		FileWriter fileWriter = null;

@@ -6,11 +6,11 @@ public class IOMain {
 
 		String fileName = "myfile";
 
-		FileWrite<String> fileWrite = new SimpleFileWrite();
+		Writable<String> fileWrite = new SimpleFileWrite();
 
 		fileWrite.write(fileName, HELLO_WORLD);
 
-		FileRead<String> fileRead = new SimpleFileRead();
+		Readable<String> fileRead = new SimpleFileRead();
 
 		String dataRead = fileRead.read(fileName);
 

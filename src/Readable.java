@@ -1,4 +1,4 @@
-public interface FileRead <T>{
+public interface Readable <T>{
 
 	public T read(String file);
 }
