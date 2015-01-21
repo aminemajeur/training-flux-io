@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
-public interface FileWrite {
+public interface FileWrite<T extends Serializable> {
 
-	public void write(String file, String data);
+	public void write(String file, T data);
 }

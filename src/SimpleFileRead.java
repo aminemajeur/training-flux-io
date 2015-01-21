@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class SimpleFileRead implements FileRead {
+public class SimpleFileRead implements FileRead<String> {
 
 	public String read(String file) {
 		String data = "";
