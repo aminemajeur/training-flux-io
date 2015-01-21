@@ -1,4 +1,4 @@
-public interface Readable <T>{
+public interface ReadIO <T>{
 
 	public T read(String file);
 }

@@ -6,11 +6,11 @@ public class ProcessIO {
 
 		String fileName = "myfile";
 
-		Writable<String> fileWrite = new SimpleFileWrite();
+		WriteIO<String> fileWrite = new SimpleFileWrite();
 
 		fileWrite.write(fileName, HELLO_WORLD);
 
-		Readable<String> fileRead = new SimpleFileRead();
+		ReadIO<String> fileRead = new SimpleFileRead();
 
 		String dataRead = fileRead.read(fileName);
 
