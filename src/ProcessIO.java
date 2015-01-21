@@ -1,4 +1,4 @@
-public class IOMain {
+public class ProcessIO {
 
 	private static final String HELLO_WORLD = "Hello world";
 
